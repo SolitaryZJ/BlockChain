@@ -172,7 +172,7 @@ Golang 的 GMP 调度模型 是 Go 语言运行时（runtime）中的核心机�
 
 go lifecycle
 
-1. 当程序启动时，程序会更具GOMAXPROCS环境变量的值来决定启动的P的数量
+1. 当程序启动时，程序会根据GOMAXPROCS环境变量的值来决定启动的P的数量
 2. 此时创建一个goroutine协程，处于runable状态。并将其加入当前创建该G的P队列。
 如果队列满了，则会放入全局队列。
 3. 每一个M都需要绑定一个P，用来执行G。M在切换G时，先切换到g0然后才会切换到P中的G
